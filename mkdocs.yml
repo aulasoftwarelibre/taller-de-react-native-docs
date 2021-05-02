@@ -42,7 +42,7 @@ markdown_extensions:
   - admonition: ~
   - attr_list: ~
   - codehilite:
-      guess_lang: false
+      guess_lang: true
       linenums: false
   - def_list: ~
   - footnotes: ~
