@@ -1,3 +1,12 @@
 arrange:
   - index.md
-  - other.md
+  - what-is-react-native.md
+  - react-fundamentals.md
+  - env-setup.md
+  - project-structure.md
+  - aplying-styles.md
+  - height-and-width.md
+  - layout-with-flexbox.md
+  - react-native-paper.md
+  - react-navigation.md
+  - references.md

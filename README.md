@@ -1,4 +1,4 @@
-# Plantilla de talleres
+# Taller de desarrollo de aplicaciones móvil con React Native
 
 <div align="center">
     <img width="200" src="/docs/images/logoasl.png" alt="Aula Software Libre de la UCO">
@@ -6,14 +6,19 @@
 
 <div align="center">
 
-![built by developers](https://img.shields.io/badge/built%20by-developers%20%3C%2F%3E-orange.svg?longCache=true&style=for-the-badge) ![made with mkdocs](https://img.shields.io/badge/made%20with-mkdocs-green.svg?longCache=true&style=for-the-badge) ![uses git](https://img.shields.io/badge/uses-git-blue.svg?longCache=true&style=for-the-badge)
+![built by developers](https://img.shields.io/badge/built%20by-developers%20%3C%2F%3E-orange.svg?longCache=true&style=for-the-badge) ![made with php](https://img.shields.io/badge/made%20with-mkdocs-green.svg?longCache=true&style=for-the-badge) ![uses git](https://img.shields.io/badge/uses-git-blue.svg?longCache=true&style=for-the-badge)
 
 </div>
 
-Esta plantilla se puede usar para documentar los talleres y actividades del [Aula de Software Libre de la Universidad de Córdoba](https://www.uco.es/aulasoftwarelibre).
+Este taller forma parte de las actividades del [Aula de Software Libre de la
+Universidad de Córdoba](https://www.uco.es/aulasoftwarelibre).
 
-Simplemente usa el botón "Use this template" en vez de clonar el repositorio desde Github.
+## Documentación
 
-## Licencia
+El curso se puede seguir en [https://aulasoftwarelibre.github.io/taller-de-react-native-docs/](https://aulasoftwarelibre.github.io/taller-de-react-native-docs/)
 
-El material está publicado con licencia [Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.es)
+## Agradecimientos
+
+Este taller ha sido realizado por:
+
+- [Francisco Javier Molina Prieto](https://github.com/rexuswolf)
