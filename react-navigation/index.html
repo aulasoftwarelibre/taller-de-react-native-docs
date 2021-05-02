@@ -1,0 +1,1007 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Taller de desarrollo de aplicaciones móvil con React Native">
+      
+      
+      
+        <meta name="author" content="Francisco Javier Molina Prieto <i72moprf@uco.es>">
+      
+      
+        <link rel="canonical" href="https://github.com/aulasoftwarelibre/taller-de-react-native-docs.git/react-navigation/">
+      
+      <link rel="icon" href="../images/logoasl.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+    
+    
+      
+        <title>React Navigation - Taller de React Native</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="../dark.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-51754922-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="grey">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#react-navigation" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Taller de React Native" class="md-header__button md-logo" aria-label="Taller de React Native" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.5 4.5h19c.84 0 1.5.65 1.5 1.5v11.5c0 .85-.66 1.5-1.5 1.5h-19c-.85 0-1.5-.65-1.5-1.5V6c0-.85.65-1.5 1.5-1.5m7.21 4V15l5.71-3.3-5.71-3.2M17.25 21H6.65c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h10.7c.3 0 .5.2.5.5s-.3.5-.6.5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Taller de React Native
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              React Navigation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/aulasoftwarelibre/taller-de-react-native-docs.git/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aulasoftwarelibre/taller-de-react-native-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Taller de React Native" class="md-nav__button md-logo" aria-label="Taller de React Native" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.5 4.5h19c.84 0 1.5.65 1.5 1.5v11.5c0 .85-.66 1.5-1.5 1.5h-19c-.85 0-1.5-.65-1.5-1.5V6c0-.85.65-1.5 1.5-1.5m7.21 4V15l5.71-3.3-5.71-3.2M17.25 21H6.65c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h10.7c.3 0 .5.2.5.5s-.3.5-.6.5z"/></svg>
+
+    </a>
+    Taller de React Native
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/aulasoftwarelibre/taller-de-react-native-docs.git/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aulasoftwarelibre/taller-de-react-native-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-react-native/" class="md-nav__link">
+        ¿Qué es React Native?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../react-fundamentals/" class="md-nav__link">
+        Fundamentos básicos de React
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../env-setup/" class="md-nav__link">
+        Preparación del entorno de desarrollo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-structure/" class="md-nav__link">
+        Estructura del proyecto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aplying-styles/" class="md-nav__link">
+        Aplicando estilos a componentes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../height-and-width/" class="md-nav__link">
+        Ancho y alto de un componente
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layout-with-flexbox/" class="md-nav__link">
+        Diseño con Flexbox
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../react-native-paper/" class="md-nav__link">
+        React Native Paper
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          React Navigation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        React Navigation
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-dependencias" class="md-nav__link">
+    Instalación de dependencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-navigator" class="md-nav__link">
+    Stack Navigator
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack Navigator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-la-libreria-del-stack-navigator" class="md-nav__link">
+    Instalación de la librería del stack navigator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-un-stack-navigator" class="md-nav__link">
+    Creación de un Stack Navigator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#especificando-opciones-al-navigator" class="md-nav__link">
+    Especificando opciones al navigator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pasando-props-adicionales" class="md-nav__link">
+    Pasando props adicionales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegacion-entre-vistas" class="md-nav__link">
+    Navegación entre vistas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasar-parametros-a-rutas" class="md-nav__link">
+    Pasar parámetros a rutas
+  </a>
+  
+    <nav class="md-nav" aria-label="Pasar parámetros a rutas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-deberia-pasar-en-los-parametros-a-una-pantalla" class="md-nav__link">
+    ¿Qué debería pasar en los parámetros a una pantalla?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        Referencias
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-dependencias" class="md-nav__link">
+    Instalación de dependencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-navigator" class="md-nav__link">
+    Stack Navigator
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack Navigator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-la-libreria-del-stack-navigator" class="md-nav__link">
+    Instalación de la librería del stack navigator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-un-stack-navigator" class="md-nav__link">
+    Creación de un Stack Navigator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#especificando-opciones-al-navigator" class="md-nav__link">
+    Especificando opciones al navigator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pasando-props-adicionales" class="md-nav__link">
+    Pasando props adicionales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegacion-entre-vistas" class="md-nav__link">
+    Navegación entre vistas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasar-parametros-a-rutas" class="md-nav__link">
+    Pasar parámetros a rutas
+  </a>
+  
+    <nav class="md-nav" aria-label="Pasar parámetros a rutas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-deberia-pasar-en-los-parametros-a-una-pantalla" class="md-nav__link">
+    ¿Qué debería pasar en los parámetros a una pantalla?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/aulasoftwarelibre/taller-de-react-native-docs.git/edit/master/docs/react-navigation.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="react-navigation">React Navigation<a class="headerlink" href="#react-navigation" title="Permanent link">&para;</a></h1>
+<p>Antes de entrar en materia con la navegación a través de nuestra aplicación, la cual conseguiremos utilizando React Navigation, es de gran utilidad tener claro cómo funciona la navegación en un navegador web.</p>
+<p>En un navegador web, nuestro historial de navegación actúa como una pila de URLs. Los enlaces se crean con la etiqueta de anclaje (<code>&lt;a&gt;</code>) en HTML. Cuando el usuario hace clic en un enlace, la URL en la que nos encontrábamos se envía a la pila del historial del navegador y navegamos a la página enlazada. Si el usuario presiona el botón Atrás, el navegador mostrará el elemento de la parte superior de la pila del historial, por lo que la página activa pasará a ser la página visitada anteriormente.</p>
+<p>React Native no tiene una idea incorporada de un historial global o pila de URLs como lo hace un navegador web; y es aquí donde React Navigation entra en escena.</p>
+<h2 id="instalacion-de-dependencias">Instalación de dependencias<a class="headerlink" href="#instalacion-de-dependencias" title="Permanent link">&para;</a></h2>
+<p>Antes de nada, debemos instalar las dependencias esenciales para que React Navigation funcione correctamente. En la carpeta del proyecto, ejecuta el siguiente comando:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">expo</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">react</span><span class="o">-</span><span class="n">native</span><span class="o">-</span><span class="n">gesture</span><span class="o">-</span><span class="n">handler</span><span class="w"> </span><span class="n">react</span><span class="o">-</span><span class="n">native</span><span class="o">-</span><span class="n">reanimated</span><span class="w"> </span><span class="n">react</span><span class="o">-</span><span class="n">native</span><span class="o">-</span><span class="n">screens</span><span class="w"> </span><span class="n">react</span><span class="o">-</span><span class="n">native</span><span class="o">-</span><span class="n">safe</span><span class="o">-</span><span class="n">area</span><span class="o">-</span><span class="n">context</span><span class="w"> </span><span class="nv">@react</span><span class="o">-</span><span class="n">native</span><span class="o">-</span><span class="n">community</span><span class="o">/</span><span class="n">masked</span><span class="o">-</span><span class="k">view</span><span class="w"></span>
+</code></pre></div>
+
+<p>Esto instalará las versiones de estas librerías compatibles con la versión de React Native en la que se encuentre nuestro proyecto.</p>
+<p>En React Navigation existen distintos tipos de navigators, pero en este taller nos centraremos en el Stack Navigator, que es el más similar al de un navegador web.</p>
+<h2 id="stack-navigator">Stack Navigator<a class="headerlink" href="#stack-navigator" title="Permanent link">&para;</a></h2>
+<p>El Stack Navigator de React Navigation nos provee de un mecanismo para navegar entre las distintas vistas de nuestra aplicación y gestionar un historial de navegación.</p>
+<p>Si tu aplicación utiliza un único stack navigator, sería conceptualmente similar a la forma en la que un navegador gestiona su estado de navegación - tu aplicación mete o saca elementos de su pila de navegación a medida que el usuario interactúa con esta, y esto resulta en el usuario viendo distintas vistas.</p>
+<p>La diferencia respecto a un navegador web es que el stack navigator de React Navigation está provisto de los gestos y animaciones que verías en una aplicación de Android o iOS al navegar entre rutas.</p>
+<p>Para diferenciar entre los navigators de React Navigation, y un navegador web, no se traducirá el concepto navigator cuando estemos hablando del primero de estos.</p>
+<h3 id="instalacion-de-la-libreria-del-stack-navigator">Instalación de la librería del stack navigator<a class="headerlink" href="#instalacion-de-la-libreria-del-stack-navigator" title="Permanent link">&para;</a></h3>
+<p>Las librerías que hemos instalado hasta ahora son los cimientos del resto de navigators, y cada navigator en React Navigation tiene su propia librería.</p>
+<p>Para utilizar el stack navigator, necesitaremos instalar <a href="https://github.com/react-navigation/react-navigation/tree/main/packages/stack"><code>@react-navigation/stack</code></a>, ejecutando el siguiente comando.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">npm</span><span class="w">  </span><span class="n">install</span><span class="w"> </span><span class="nv">@react</span><span class="o">-</span><span class="n">navigation</span><span class="o">/</span><span class="n">stack</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="creacion-de-un-stack-navigator">Creación de un Stack Navigator<a class="headerlink" href="#creacion-de-un-stack-navigator" title="Permanent link">&para;</a></h3>
+<p><code>createStackNavigator</code> es una función que devuelve un objeto que contiene 2 propiedades: <code>Screen</code> y <code>Navigator</code>. Ambos son componentes de React que se utilizan para configurar el navigator. El <code>Navigator</code> debe contener elementos <code>Screen</code> como elementos hijo para definir la configuración de rutas.</p>
+<p><code>NavigationContainer</code> es un componente que administra nuestro árbol de navegación y contiene el <a href="https://reactnavigation.org/docs/navigation-state">estado de navegación</a>. Este componente debe envolver la estructura de todos los navigators. Por lo general, renderizamos este componente en la raíz de nuestra aplicación, que suele ser el componente exportado desde <code>App.js</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">App</span><span class="o">.</span><span class="n">js</span>
+
+<span class="kn">import</span> <span class="o">*</span> <span class="k">as</span> <span class="n">React</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">View</span><span class="p">,</span> <span class="n">Text</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-native&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">NavigationContainer</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@react-navigation/native&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">createStackNavigator</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@react-navigation/stack&#39;</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="n">HomeScreen</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">View</span> <span class="n">style</span><span class="o">=</span><span class="p">{{</span> <span class="n">flex</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">alignItems</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">justifyContent</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span> <span class="p">}}</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span><span class="n">Home</span> <span class="n">Screen</span><span class="o">&lt;/</span><span class="n">Text</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">View</span><span class="o">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">const</span> <span class="n">Stack</span> <span class="o">=</span> <span class="n">createStackNavigator</span><span class="p">();</span>
+
+<span class="n">function</span> <span class="n">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">NavigationContainer</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">Stack</span><span class="o">.</span><span class="n">Navigator</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">Stack</span><span class="o">.</span><span class="n">Screen</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Home&quot;</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">HomeScreen</span><span class="p">}</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">Stack</span><span class="o">.</span><span class="n">Navigator</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">NavigationContainer</span><span class="o">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">App</span><span class="p">;</span>
+</code></pre></div>
+
+<p><img alt="Preview de App.js" src="https://reactnavigation.org/assets/images/basic_stack_nav-7388d409c412d0c728a0903301338433.png" /></p>
+<p>Si ejecutas este código, verás una pantalla con una barra de navegación vacía y un área de contenido gris que contiene el componente <code>HomeScreen</code>, definido justo antes de App. Los estilos de la barra de navegación y el área de contenido son la configuración predeterminada para un stack navigator, y aprenderemos cómo configurarlos más adelante.</p>
+<p>El primer componente Screen que pasemos a nuestro stack navigator será la <strong>ruta inicial</strong>. Prueba a crear un componente <code>Details</code>, que sea igual a <code>Home</code> pero cambiando el texto del contenido para diferenciarlos. A continuación, crea un componente Screen y pasa el componente Details como prop. Ahora, prueba a poner este <code>Screen</code> en primer lugar, guarda el fichero y tu aplicación debería mostrar la vista de <code>Details</code>.</p>
+<h3 id="especificando-opciones-al-navigator">Especificando opciones al navigator<a class="headerlink" href="#especificando-opciones-al-navigator" title="Permanent link">&para;</a></h3>
+<p>Cada vista en el navigator puede tener sus opciones específicas, como el título que se renderiza en el encabezado. Estas opciones pueden pasarse como una prop <em>options</em> para cada componente <code>Screen</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="x">&lt;Stack.Screen</span>
+<span class="x">  name=&quot;Home&quot;</span>
+<span class="x">  component={HomeScreen}</span>
+<span class="x">  options=</span><span class="cp">{{</span> <span class="nv">title</span><span class="o">:</span> <span class="s1">&#39;Overview&#39;</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">/&gt;</span>
+</code></pre></div>
+
+<p>A veces nos interesará especificar las mismas opciones para todas las vistas del navigator. Para ello, podemos pasar una prop <em>screenOptions</em> al navigator.</p>
+<h3 id="pasando-props-adicionales">Pasando props adicionales<a class="headerlink" href="#pasando-props-adicionales" title="Permanent link">&para;</a></h3>
+<p>En caso de querer pasar props personalizadas a una vista, podemos conseguirlo de dos formas:
+Sometimes we might want to pass additional props to a screen. We can do that with 2 approaches:</p>
+<ul>
+<li>Utilizar <a href="https://reactjs.org/docs/context.html">React context</a> y envolver el navigator con un provider de contexto para pasar datos a las vistas (recomendado).</li>
+<li>Utilizar un callback de renderizado en lugar de pasar un componente como prop:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;Stack.Screen</span> <span class="na">name=</span><span class="s">&quot;Home&quot;</span><span class="nt">&gt;</span>
+  {props =&gt; <span class="nt">&lt;HomeScreen</span> <span class="err">{...props}</span> <span class="na">extraData=</span><span class="s">{someData}</span> <span class="nt">/&gt;</span>}
+<span class="nt">&lt;/Stack.Screen&gt;</span>
+</code></pre></div>
+
+<h2 id="navegacion-entre-vistas">Navegación entre vistas<a class="headerlink" href="#navegacion-entre-vistas" title="Permanent link">&para;</a></h2>
+<p>Todo bien pero...¿Cómo consigo navegar entre rutas de mi aplicación? Vamos a ello.</p>
+<p>En la sección anterior, hemos definido un stack navigator con dos rutas ( <code>Home</code>y <code>Details</code>), pero no hemos aprendido cómo conseguir que un usuario navegue de <code>Home</code>a <code>Details</code> (aunque sí aprendimos cómo cambiar la ruta <em>inicial</em> en nuestro código, pero obligar a nuestros usuarios a clonar nuestro repositorio y cambiar la ruta en el código para ver otra pantalla es posiblemente una de las peores experiencias de usuario que uno podría imaginar).</p>
+<p>Si este fuera un navegador web, podríamos escribir algo como esto:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;details.html&quot;</span><span class="nt">&gt;</span>Go to Details<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+
+<p>O esto:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span>
+  <span class="na">onClick=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> {
+    window.location.href = &#39;details.html&#39;;
+  }}
+&gt;
+  Go to Details
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+
+<p>Haremos algo similar, pero en lugar de utilizar un objeto global <code>window.location</code>, usaremos el prop <code>navigation</code> del cual disponen nuestros componentes <code>Screen</code> de manera automática.</p>
+<p>Observa el siguiente ejemplo:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="o">*</span> <span class="k">as</span> <span class="n">React</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">Button</span><span class="p">,</span> <span class="n">View</span><span class="p">,</span> <span class="n">Text</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-native&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">NavigationContainer</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@react-navigation/native&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">createStackNavigator</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@react-navigation/stack&#39;</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="n">HomeScreen</span><span class="p">({</span> <span class="n">navigation</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">View</span> <span class="n">style</span><span class="o">=</span><span class="p">{{</span> <span class="n">flex</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">alignItems</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">justifyContent</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span> <span class="p">}}</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span><span class="n">Home</span> <span class="n">Screen</span><span class="o">&lt;/</span><span class="n">Text</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">Button</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Go to Details&quot;</span>
+        <span class="n">onPress</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">navigation</span><span class="o">.</span><span class="n">navigate</span><span class="p">(</span><span class="s1">&#39;Details&#39;</span><span class="p">)}</span>
+      <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">View</span><span class="o">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="o">...</span> <span class="n">código</span> <span class="n">de</span> <span class="n">la</span> <span class="n">sección</span> <span class="n">anterior</span>
+</code></pre></div>
+
+<p>Veamos esto con detalle:</p>
+<ul>
+<li>navigation: El prop navigation es pasado en cada uno de los componentes screen del stack navigator.</li>
+<li>navigate('Details') - llamamos a la función <em>navigate</em> de la prop <em>navigation</em> (los nombres son algo confusos al principio) con el nombre de la ruta a la que queremos navegar.</li>
+</ul>
+<blockquote>
+<p>Si llamamos a <code>navigation.navigate</code> con un nombre de ruta que no hemos definido en un navigator, imprimirá un error en las builds (compilaciones) de desarrollo y no pasará nada en las builds de producción. Dicho de otra manera, solo podemos navegar a rutas que hayan sido definidas en nuestro navegador, no podemos navegar a un componente arbitrario.</p>
+</blockquote>
+<p>Entonces, ahora tenemos una pila con dos rutas: 1) la ruta <code>Home</code> 2) la ruta <code>Details</code>. ¿Qué pasaría si volviéramos a navegar a la ruta <code>Details</code>, desde la vista <code>Details</code>?</p>
+<p>Pongamos que el código de nuestro componente Details fuera el siguiente:</p>
+<div class="codehilite"><pre><span></span><code>function DetailsScreen({ navigation }) {
+  return (
+    <span class="nt">&lt;View</span> <span class="na">style=</span><span class="cp">{{</span> <span class="nv">flex</span><span class="o">:</span> <span class="m">1</span><span class="o">,</span> <span class="nv">alignItems</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="o">,</span> <span class="nv">justifyContent</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="cp">}}</span><span class="err">&gt;</span>
+      <span class="s">&lt;Text</span><span class="nt">&gt;</span>Details Screen<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Button</span>
+        <span class="na">title=</span><span class="s">&quot;Go to Details... again&quot;</span>
+        <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.navigate(&#39;Details&#39;)}
+      /&gt;
+    <span class="nt">&lt;/View&gt;</span>
+  );
+}
+</code></pre></div>
+
+<p>Si ejecutas este código, notarás que cuando tocas "Go to Details...again", ¡no hace nada! Esto se debe a que ya estamos en la ruta de Details. La función <code>navigate</code> significa, en realidad, "ir a esta ruta", y si ya estás ahí, tiene sentido que no haga nada.</p>
+<p>Supongamos que realmente queremos agregar otra vista de Details. Esto es bastante común en casos en los que se pasa algún dato único a cada ruta (más adelante explicaremos cómo hacerlo). Para hacer esto, podemos cambiar <code>navigate</code> a <code>push</code>. Esto nos permite expresar la intención de agregar otra ruta, independientemente del historial de navegación existente.</p>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">Button</span><span class="w"></span>
+<span class="w">  </span><span class="n">title</span><span class="o">=</span><span class="ss">&quot;Go to Details... again&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="n">onPress</span><span class="o">=</span><span class="err">{</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">navigation</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;Details&#39;</span><span class="p">)</span><span class="err">}</span><span class="w"></span>
+<span class="o">/&gt;</span><span class="w"></span>
+</code></pre></div>
+
+<p>Cada vez que llamamos a <em>push</em>, se añade una nueva ruta a la pila de navegación. Cuando llamamos a <em>navigate</em> intenta encontrar una ruta existente con el nombre especificado, y solo pushea una nueva ruta en caso de no encontrarla en la pila.</p>
+<p>El encabezado proporcionado por el stack navigator incluirá automáticamente un botón de retroceso cuando sea posible volver desde la pantalla activa (si solo hay una pantalla en la pila de navegación, no hay nada a lo que se pueda volver, por lo que no hay botón de retroceso).</p>
+<p>En caso de necesitar este comportamiento en algún otro sitio, puedes usar <code>navigation.goBack();</code></p>
+<div class="codehilite"><pre><span></span><code>function DetailsScreen({ navigation }) {
+  return (
+    <span class="nt">&lt;View</span> <span class="na">style=</span><span class="cp">{{</span> <span class="nv">flex</span><span class="o">:</span> <span class="m">1</span><span class="o">,</span> <span class="nv">alignItems</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="o">,</span> <span class="nv">justifyContent</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="cp">}}</span><span class="err">&gt;</span>
+      <span class="s">&lt;Text</span><span class="nt">&gt;</span>Details Screen<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Button</span>
+        <span class="na">title=</span><span class="s">&quot;Go to Details... again&quot;</span>
+        <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.push(&#39;Details&#39;)}
+      /&gt;
+      <span class="nt">&lt;Button</span> <span class="na">title=</span><span class="s">&quot;Go to Home&quot;</span> <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.navigate(&#39;Home&#39;)} /&gt;
+      <span class="nt">&lt;Button</span> <span class="na">title=</span><span class="s">&quot;Go back&quot;</span> <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.goBack()} /&gt;
+    <span class="nt">&lt;/View&gt;</span>
+  );
+}
+</code></pre></div>
+
+<p>Otro caso de uso común es querer retroceder varias pantallas, por ejemplo, si tienes varias pantallas en una pila y quieres descartarlas todas para volver a la primera pantalla. Si quisiéramos volver a <code>Home</code>, podríamos hacerlo usando <code>navigate('Home')</code>( ¡no uses <em>push</em>! Pruébalo y mira la diferencia). Otra alternativa sería utilizar <code>navigation.popToTop()</code>, que te devuelve a la primera pantalla de la pila.</p>
+<div class="codehilite"><pre><span></span><code>function DetailsScreen({ navigation }) {
+  return (
+    <span class="nt">&lt;View</span> <span class="na">style=</span><span class="cp">{{</span> <span class="nv">flex</span><span class="o">:</span> <span class="m">1</span><span class="o">,</span> <span class="nv">alignItems</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="o">,</span> <span class="nv">justifyContent</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="cp">}}</span><span class="err">&gt;</span>
+      <span class="s">&lt;Text</span><span class="nt">&gt;</span>Details Screen<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Button</span>
+        <span class="na">title=</span><span class="s">&quot;Go to Details... again&quot;</span>
+        <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.push(&#39;Details&#39;)}
+      /&gt;
+      <span class="nt">&lt;Button</span> <span class="na">title=</span><span class="s">&quot;Go to Home&quot;</span> <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.navigate(&#39;Home&#39;)} /&gt;
+      <span class="nt">&lt;Button</span> <span class="na">title=</span><span class="s">&quot;Go back&quot;</span> <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.goBack()} /&gt;
+      <span class="nt">&lt;Button</span>
+        <span class="na">title=</span><span class="s">&quot;Go back to first screen in stack&quot;</span>
+        <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.popToTop()}
+      /&gt;
+    <span class="nt">&lt;/View&gt;</span>
+  );
+}
+</code></pre></div>
+
+<h2 id="pasar-parametros-a-rutas">Pasar parámetros a rutas<a class="headerlink" href="#pasar-parametros-a-rutas" title="Permanent link">&para;</a></h2>
+<p>Ahora que sabemos cómo crear un stack navigator con algunas rutas, pasemos a ver cómo podemos pasar datos a las rutas cuando navegamos hacia ellas.</p>
+<p>Hay dos pasos clave para esto:</p>
+<ol>
+<li>Pasar los parámetros a una ruta, contenidos en un objeto, como segundo parámetro de la función <code>navigation.navigate</code>:</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>navigation.navigate(&#39;RouteName&#39;, { /* los parámetros irían aquí here */ })
+</code></pre></div>
+
+<ol>
+<li>Leer los parametros en el componente de la pantalla utilizando <code>route.params</code>.</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>function HomeScreen({ navigation }) {
+  return (
+    <span class="nt">&lt;View</span> <span class="na">style=</span><span class="cp">{{</span> <span class="nv">flex</span><span class="o">:</span> <span class="m">1</span><span class="o">,</span> <span class="nv">alignItems</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="o">,</span> <span class="nv">justifyContent</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="cp">}}</span><span class="err">&gt;</span>
+      <span class="s">&lt;Text</span><span class="nt">&gt;</span>Home Screen<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Button</span>
+        <span class="na">title=</span><span class="s">&quot;Go to Details&quot;</span>
+        <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> {
+          /* 1. Navigate to the Details route with params */
+          navigation.navigate(&#39;Details&#39;, {
+            itemId: 86,
+            otherParam: &#39;anything you want here&#39;,
+          });
+        }}
+      /&gt;
+    <span class="nt">&lt;/View&gt;</span>
+  );
+}
+
+function DetailsScreen({ route, navigation }) {
+  /* 2. Get the param */
+  const { itemId, otherParam } = route.params;
+  return (
+    <span class="nt">&lt;View</span> <span class="na">style=</span><span class="cp">{{</span> <span class="nv">flex</span><span class="o">:</span> <span class="m">1</span><span class="o">,</span> <span class="nv">alignItems</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="o">,</span> <span class="nv">justifyContent</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="cp">}}</span><span class="err">&gt;</span>
+      <span class="s">&lt;Text</span><span class="nt">&gt;</span>Details Screen<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Text&gt;</span>itemId: {JSON.stringify(itemId)}<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Text&gt;</span>otherParam: {JSON.stringify(otherParam)}<span class="nt">&lt;/Text&gt;</span>
+      <span class="nt">&lt;Button</span>
+        <span class="na">title=</span><span class="s">&quot;Go to Details... again&quot;</span>
+        <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span>
+          navigation.push(&#39;Details&#39;, {
+            itemId: Math.floor(Math.random() * 100),
+          })
+        }
+      /&gt;
+      <span class="nt">&lt;Button</span> <span class="na">title=</span><span class="s">&quot;Go to Home&quot;</span> <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.navigate(&#39;Home&#39;)} /&gt;
+      <span class="nt">&lt;Button</span> <span class="na">title=</span><span class="s">&quot;Go back&quot;</span> <span class="na">onPress=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> navigation.goBack()} /&gt;
+    <span class="nt">&lt;/View&gt;</span>
+  );
+}
+</code></pre></div>
+
+<p><img alt="Ejemplo de parámetros en una ruta" src="https://reactnavigation.org/assets/images/passing_params-69f71caabd25eb4226631c1fff19d8ef.png" /></p>
+<p>Las pantallas también pueden actualizar sus parámetros, al igual que pueden actualizar su estado. el método <code>navigation.setParams</code> permite actualizar los parámetros de una pantalla.</p>
+<div class="codehilite"><pre><span></span><code>navigation.setParams({
+  query: &#39;someText&#39;,
+})
+</code></pre></div>
+
+<p>Consulta la <a href="https://reactnavigation.org/docs/navigation-prop#setparams">documentación oficial</a> para obtener más información sobre setParams.</p>
+<p>También puedes pasar parámetros iniciales a una pantalla. Si no especificas ningún parámetro al navegar a esta pantalla, se utilizarán los parámetros iniciales. También se añadirán a cualquier parámetro que pases a una pantalla. Los parámetros iniciales se pueden especificar con la prop <code>initialParams</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="x">&lt;Stack.Screen</span>
+<span class="x">  name=&quot;Details&quot;</span>
+<span class="x">  component={DetailsScreen}</span>
+<span class="x">  initialParams=</span><span class="cp">{{</span> <span class="nv">itemId</span><span class="o">:</span> <span class="m">42</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">/&gt;</span>
+</code></pre></div>
+
+<h3 id="que-deberia-pasar-en-los-parametros-a-una-pantalla">¿Qué debería pasar en los parámetros a una pantalla?<a class="headerlink" href="#que-deberia-pasar-en-los-parametros-a-una-pantalla" title="Permanent link">&para;</a></h3>
+<p>Es importante comprender qué tipo de datos deben incluirse en los parámetros. Los parámetros son como opciones para una pantalla. Solo deben contener información para configurar lo que se muestra en la pantalla. Evita pasar todos los datos que se mostrarán en la misma (por ejemplo, puedes un ID de usuario en lugar de un objeto de User). Evita también pasar datos que son utilizados por múltiples pantallas, dichos datos deberían estar en una <a href="https://es.reactjs.org/docs/context.html">store global</a>.</p>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="err">¡</span><span class="nt">No</span> <span class="nt">hagas</span> <span class="nt">esto</span><span class="o">!</span>
+<span class="nt">navigation</span><span class="p">.</span><span class="nc">navigate</span><span class="o">(</span><span class="s1">&#39;Profile&#39;</span><span class="o">,</span> <span class="p">{</span>
+  <span class="n">user</span><span class="p">:</span> <span class="err">{</span>
+    <span class="n">id</span><span class="o">:</span> <span class="s1">&#39;jane&#39;</span><span class="p">,</span>
+    <span class="n">firstName</span><span class="o">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span>
+    <span class="n">lastName</span><span class="o">:</span> <span class="s1">&#39;Done&#39;</span><span class="p">,</span>
+    <span class="n">age</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+  <span class="p">}</span><span class="o">,</span>
+<span class="err">}</span><span class="o">);</span>
+</code></pre></div>
+
+<p>Esto puede parecer conveniente y permite acceder a los objetos de usuario <code>route.params.user</code> sin ningún trabajo adicional.</p>
+<p>Sin embargo, esto se trata de un anti-patrón. Los datos, como los objetos de usuario, deberían estar en una store global en lugar de en el estado de navegación. De lo contrario, tendrás los mismos datos duplicados en varios sitios. Esto puede generar errores, como que la pantalla de perfil muestre datos desactualizados, incluso si el objeto del usuario ha cambiado después de la navegación.</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Última actualización: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2 de mayo de 2021</span>
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        <a href="../react-native-paper/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              React Native Paper
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../references/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Referencias
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/aulasoftwarelibre" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/aulasl" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://facebook.com/aulasl" target="_blank" rel="noopener" title="facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://instagram.com/aulasoftwarelibre" target="_blank" rel="noopener" title="instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/channel/UCfWiR5j-cbKcGTi9faK8P6w" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
