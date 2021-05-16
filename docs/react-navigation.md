@@ -77,7 +77,7 @@ export default App;
 
 ![Preview de App.js](https://reactnavigation.org/assets/images/basic_stack_nav-7388d409c412d0c728a0903301338433.png)
 
-Si ejecutas este código, verás una pantalla con una barra de navegación vacía y un área de contenido gris que contiene el componente `HomeScreen`, definido justo antes de App. Los estilos de la barra de navegación y el área de contenido son la configuración predeterminada para un stack navigator, y aprenderemos cómo configurarlos más adelante.
+Si ejecutas este código, verás una pantalla con una barra de navegación vacía y un área de contenido gris que contiene el componente `HomeScreen`, definido justo antes de App. Los estilos de la barra de navegación y el área de contenido son la configuración predeterminada para un stack navigator, y puedes ver cómo configurarlos en la [documentación oficial de React Navigation](https://reactnavigation.org/docs/headers/).
 
 El primer componente Screen que pasemos a nuestro stack navigator será la **ruta inicial**. Prueba a crear un componente `Details`, que sea igual a `Home` pero cambiando el texto del contenido para diferenciarlos. A continuación, crea un componente Screen y pasa el componente Details como prop. Ahora, prueba a poner este `Screen` en primer lugar, guarda el fichero y tu aplicación debería mostrar la vista de `Details`.
 
@@ -98,7 +98,6 @@ A veces nos interesará especificar las mismas opciones para todas las vistas de
 ### Pasando props adicionales
 
 En caso de querer pasar props personalizadas a una vista, podemos conseguirlo de dos formas:
-Sometimes we might want to pass additional props to a screen. We can do that with 2 approaches:
 
 - Utilizar [React context](https://reactjs.org/docs/context.html) y envolver el navigator con un provider de contexto para pasar datos a las vistas (recomendado).
 - Utilizar un callback de renderizado en lugar de pasar un componente como prop:
